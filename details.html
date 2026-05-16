@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Details 💕</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+      animation: fadeIn 0.8s ease-out;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      animation: slideDown 0.6s ease-out;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: scaleIn 0.6s ease-out 0.2s both;
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+      animation: slideInLeft 0.5s ease-out backwards;
+    }
+
+    .form-group:nth-child(1) { animation-delay: 0.1s; }
+    .form-group:nth-child(2) { animation-delay: 0.15s; }
+    .form-group:nth-child(3) { animation-delay: 0.2s; }
+    .form-group:nth-child(4) { animation-delay: 0.25s; }
+    .form-group:nth-child(5) { animation-delay: 0.3s; }
+    .form-group:nth-child(6) { animation-delay: 0.35s; }
+    .form-group:nth-child(7) { animation-delay: 0.4s; }
+    .form-group:nth-child(8) { animation-delay: 0.45s; }
+    .form-group:nth-child(9) { animation-delay: 0.5s; }
+    .form-group:nth-child(10) { animation-delay: 0.55s; }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    label {
+      display: block;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      background: white;
+    }
+
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #f12711;
+      box-shadow: 0 0 0 3px rgba(241, 39, 17, 0.1);
+      transform: translateY(-2px);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
+    }
+
+    .buttons-container {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      animation: fadeInUp 0.6s ease-out 0.7s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    button {
+      flex: 1;
+      padding: 15px 25px;
+      font-size: 1.05rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .save-btn {
+      background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+      color: white;
+      box-shadow: 0 5px 15px rgba(241, 39, 17, 0.3);
+    }
+
+    .save-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(241, 39, 17, 0.5);
+    }
+
+    .save-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .delete-btn {
+      background: #e0e0e0;
+      color: #333;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .delete-btn:hover {
+      background: #d0d0d0;
+      transform: translateY(-3px);
+    }
+
+    .success-message {
+      display: none;
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      animation: slideInRight 0.5s ease-out;
+      z-index: 1000;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 25px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .buttons-container {
+        flex-direction: column;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <h1>About You 🌸</h1>
+
+  <div class="card">
+
+    <div class="form-group">
+      <label>Your Name 💝</label>
+      <input type="text" id="name" placeholder="Aapka naam kya hai?">
+    </div>
+
+    <div class="form-group">
+      <label>Your Birthday 🎂</label>
+      <input type="date" id="birthday">
+    </div>
+
+    <div class="form-group">
+      <label>Favourite Color 🎨</label>
+      <input type="text" id="color" placeholder="Jis color se aapka dil khushi hota hai">
+    </div>
+
+    <div class="form-group">
+      <label>Favourite Food 🍽️</label>
+      <input type="text" id="food" placeholder="Aapka pasand ka khana">
+    </div>
+
+    <div class="form-group">
+      <label>Favourite Song 🎵</label>
+      <input type="text" id="song" placeholder="Jis gaane se aapka mann lage">
+    </div>
+
+    <div class="form-group">
+      <label>What makes you happy? 😊</label>
+      <textarea id="happy" placeholder="Kya cheezein aapko khushi deti hain?"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>What do you dislike? 😔</label>
+      <textarea id="dislike" placeholder="Aapko kya pasand nahi hai?"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Your Dream Life? ✨</label>
+      <textarea id="dream" placeholder="Aapka sapna kya hai life ka?"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>What's your love language? 💕</label>
+      <input type="text" id="lovelanguage" placeholder="Acts of Service, Words, Time, Gifts...">
+    </div>
+
+    <div class="form-group">
+      <label>Your Hidden Talent? ⭐</label>
+      <textarea id="talent" placeholder="Aapme kaunsi secret talent hai?"></textarea>
+    </div>
+
+    <div class="buttons-container">
+      <button class="save-btn" onclick="saveAll()">Save Forever 💕</button>
+      <button class="delete-btn" onclick="deleteAll()">Delete All ❌</button>
+    </div>
+
+  </div>
+</div>
+
+<div class="success-message" id="successMsg">
+  ✅ Saved Forever in My Heart 💖
+</div>
+
+<script>
+const ids = ['name', 'birthday', 'color', 'food', 'song', 'happy', 'dislike', 'dream', 'lovelanguage', 'talent'];
+
+// Load data on page load
+window.addEventListener('load', () => {
+  ids.forEach(id => {
+    const saved = localStorage.getItem(id);
+    if (saved) {
+      document.getElementById(id).value = saved;
+    }
+  });
+});
+
+// Auto-save on input
+ids.forEach(id => {
+  const element = document.getElementById(id);
+  element.addEventListener('input', () => {
+    localStorage.setItem(id, element.value);
+  });
+});
+
+function saveAll() {
+  ids.forEach(id => {
+    localStorage.setItem(id, document.getElementById(id).value);
+  });
+  
+  showSuccessMessage();
+}
+
+function deleteAll() {
+  if (confirm('Are you sure? This will delete everything... 💔')) {
+    ids.forEach(id => {
+      localStorage.removeItem(id);
+      document.getElementById(id).value = '';
+    });
+    alert('All deleted... Bhulaya mat karna 😢');
+    location.reload();
+  }
+}
+
+function showSuccessMessage() {
+  const msg = document.getElementById('successMsg');
+  msg.classList.add('show');
+  
+  setTimeout(() => {
+    msg.classList.remove('show');
+  }, 3000);
+}
+</script>
+
+</body>
+</html>

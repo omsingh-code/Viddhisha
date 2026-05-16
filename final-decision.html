@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Decision - Love Story</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 600px;
+    }
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      animation: floatUp 0.8s ease-out, heartbeat 1.5s ease-in-out infinite;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      animation: slideIn 0.6s ease-out;
+    }
+
+    .gif-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .gif-container img {
+      width: 200px;
+      height: 200px;
+      border-radius: 15px;
+      animation: pulse 2s ease-in-out infinite;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.1em;
+      color: #333;
+      margin-bottom: 30px;
+      line-height: 1.6;
+      animation: fadeIn 0.8s ease-out 0.2s both;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      color: #667eea;
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-size: 1em;
+      animation: fadeIn 0.8s ease-out 0.4s both;
+    }
+
+    select, textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 2px solid #667eea;
+      border-radius: 10px;
+      font-size: 1em;
+      font-family: inherit;
+      transition: all 0.3s ease;
+      animation: slideInUp 0.6s ease-out backwards;
+    }
+
+    select:nth-of-type(1) {
+      animation-delay: 0.5s;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+      border-color: #764ba2;
+      animation-delay: 0.7s;
+    }
+
+    select:focus, textarea:focus {
+      outline: none;
+      border-color: #764ba2;
+      box-shadow: 0 0 20px rgba(118, 75, 162, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .button-container {
+      display: flex;
+      gap: 15px;
+      margin-top: 30px;
+      animation: slideInUp 0.6s ease-out 0.9s both;
+    }
+
+    button {
+      flex: 1;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .save-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+    }
+
+    .save-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(102, 126, 234, 0.6);
+      animation: heartbeat 0.6s ease-in-out;
+    }
+
+    .save-btn:active {
+      transform: translateY(-1px);
+    }
+
+    .delete-btn {
+      background: #ff6b6b;
+      color: white;
+      box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+    }
+
+    .delete-btn:hover {
+      background: #ff5252;
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(255, 107, 107, 0.5);
+    }
+
+    .delete-btn:active {
+      transform: translateY(-1px);
+    }
+
+    /* Animations */
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+      25% {
+        transform: scale(1.05);
+      }
+      50% {
+        transform: scale(1);
+      }
+    }
+
+    @keyframes floatUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        filter: brightness(1);
+      }
+      50% {
+        transform: scale(1.03);
+        filter: brightness(1.1);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .success-message {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 40px 60px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      z-index: 1000;
+      animation: popIn 0.5s ease-out;
+      text-align: center;
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .success-message h2 {
+      color: #667eea;
+      margin-bottom: 20px;
+      font-size: 1.8em;
+    }
+
+    .success-message .emoji {
+      font-size: 3em;
+      animation: heartbeat 0.6s ease-in-out infinite;
+      display: block;
+      margin: 10px 0;
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .overlay.show {
+      display: block;
+      animation: fadeIn 0.3s ease-out;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .card {
+        padding: 25px;
+      }
+
+      .gif-container img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .button-container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="overlay" id="overlay"></div>
+
+<div class="success-message" id="successMessage">
+  <span class="emoji" id="messageEmoji">💕</span>
+  <h2 id="messageText">Decision Saved!</h2>
+</div>
+
+<div class="page">
+  <h1>Final Day 💌</h1>
+
+  <div class="card">
+    <div class="gif-container">
+      <img src="https://media.giphy.com/media/3ohzdKdb7FWH6qx4m4/giphy.gif" alt="Love Animation">
+    </div>
+
+    <p>
+      These 14 days were not about pressure...<br>
+      They were about understanding feelings 🌸
+    </p>
+
+    <label for="decision">Your Final Decision</label>
+    <select id="decision">
+      <option>Yes ❤️</option>
+      <option>No 🌸</option>
+      <option>I Need More Time 🥺</option>
+    </select>
+
+    <label for="finalmsg">Your Final Message</label>
+    <textarea id="finalmsg" placeholder="Share your thoughts and feelings..."></textarea>
+
+    <div class="button-container">
+      <button class="save-btn" onclick="saveFinal()">Save Final Decision 💖</button>
+      <button class="delete-btn" onclick="deleteFinal()">Delete ❌</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Auto-save functionality
+  function autoSave(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+
+    // Load saved data
+    const savedData = localStorage.getItem(elementId);
+    if (savedData) {
+      element.value = savedData;
+    }
+
+    // Save on change
+    element.addEventListener('change', () => {
+      localStorage.setItem(elementId, element.value);
+    });
+
+    element.addEventListener('input', () => {
+      localStorage.setItem(elementId, element.value);
+    });
+  }
+
+  function saveFinal() {
+    const decision = document.getElementById('decision').value;
+    const message = document.getElementById('finalmsg').value;
+
+    // Store data
+    localStorage.setItem('finalDecision', decision);
+    localStorage.setItem('finalMessage', message);
+
+    // Show success message with emoji based on decision
+    const overlay = document.getElementById('overlay');
+    const successMessage = document.getElementById('successMessage');
+    const messageEmoji = document.getElementById('messageEmoji');
+    const messageText = document.getElementById('messageText');
+
+    if (decision.includes('Yes')) {
+      messageEmoji.textContent = '❤️💕';
+      messageText.textContent = 'Decision Saved! 🎉';
+    } else if (decision.includes('No')) {
+      messageEmoji.textContent = '🌸';
+      messageText.textContent = 'We understand... 💙';
+    } else {
+      messageEmoji.textContent = '⏳';
+      messageText.textContent = 'Take your time... 🤍';
+    }
+
+    overlay.classList.add('show');
+    successMessage.classList.add('show');
+
+    setTimeout(() => {
+      overlay.classList.remove('show');
+      successMessage.classList.remove('show');
+    }, 2500);
+  }
+
+  function deleteData(elementId) {
+    localStorage.removeItem(elementId);
+    document.getElementById(elementId).value = '';
+  }
+
+  function deleteFinal() {
+    if (confirm('Are you sure you want to delete everything? 🥺')) {
+      deleteData('decision');
+      deleteData('finalmsg');
+      localStorage.removeItem('finalDecision');
+      localStorage.removeItem('finalMessage');
+      
+      // Show delete confirmation
+      const overlay = document.getElementById('overlay');
+      const successMessage = document.getElementById('successMessage');
+      const messageEmoji = document.getElementById('messageEmoji');
+      const messageText = document.getElementById('messageText');
+
+      messageEmoji.textContent = '🗑️';
+      messageText.textContent = 'All data deleted!';
+
+      overlay.classList.add('show');
+      successMessage.classList.add('show');
+
+      setTimeout(() => {
+        overlay.classList.remove('show');
+        successMessage.classList.remove('show');
+        location.reload();
+      }, 2000);
+    }
+  }
+
+  // Initialize auto-save on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    autoSave('decision');
+    autoSave('finalmsg');
+  });
+</script>
+
+</body>
+</html>

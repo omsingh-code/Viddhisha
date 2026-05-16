@@ -1,0 +1,203 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg,#ffd6e7,#ffeef6);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.home-container,
+.page {
+  width: 90%;
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+}
+
+h1,h2 {
+  color: #ff3d7f;
+}
+
+p {
+  color: #444;
+  line-height: 1.8;
+}
+
+.cute-gif {
+  width: 250px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+}
+
+.buttons {
+  margin-top: 30px;
+}
+
+.buttons a,
+button {
+  text-decoration: none;
+  background: #ff5c93;
+  color: white;
+  padding: 14px 24px;
+  margin: 10px;
+  border-radius: 30px;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.buttons a:hover,
+button:hover {
+  transform: scale(1.05);
+}
+
+textarea,
+input,
+select {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  border-radius: 14px;
+  border: 2px solid #ffd1e2;
+  font-size: 16px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 25px;
+  margin-top: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+label {
+  font-weight: bold;
+  color: #ff4f88;
+}
+body::before {
+  content: '💖 💕 🌸 ✨';
+  position: fixed;
+  opacity: 0.15;
+  font-size: 40px;
+  animation: float 15s linear infinite;
+}
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.love-btn{
+    position:relative;
+
+    display:inline-block;
+
+    padding:18px 42px;
+
+    background:#7f5af0;
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-family:'Pacifico', cursive;
+
+    font-size:24px;
+
+    border-radius:80px 20px 80px 20px;
+
+    box-shadow:
+    0 8px 25px rgba(127,90,240,0.45);
+
+    overflow:hidden;
+
+    transition:0.4s ease;
+
+    animation:floaty 3s ease-in-out infinite;
+}
+
+/* moving bubbles */
+.love-btn span{
+    position:relative;
+    z-index:2;
+}
+
+.love-btn::before{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    background:rgba(255,255,255,0.18);
+
+    border-radius:40%;
+
+    top:100%;
+    left:-20%;
+
+    animation:wave 7s linear infinite;
+}
+
+.love-btn::after{
+    content:"💜";
+
+    position:absolute;
+
+    right:18px;
+    top:10px;
+
+    font-size:22px;
+
+    animation:heartbeat 1.5s infinite;
+}
+
+.love-btn:hover{
+    background:#2cb67d;
+
+    transform:scale(1.08) rotate(2deg);
+
+    box-shadow:
+    0 15px 35px rgba(44,182,125,0.5);
+}
+
+/* floating animation */
+@keyframes floaty{
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-8px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+}
+
+/* wave effect */
+@keyframes wave{
+    0%{
+        transform:rotate(0deg);
+    }
+
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+/* heart beat */
+@keyframes heartbeat{
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.4);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}

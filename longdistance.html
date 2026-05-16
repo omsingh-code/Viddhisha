@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Distance But Close Hearts ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='50' y='50' font-size='80' text-anchor='middle' dominant-baseline='middle' fill='rgba(255,255,255,0.1)'%3E✨%3C/text%3E%3C/svg%3E");
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            position: relative;
+            z-index: 1;
+            animation: slideDown 1s ease-out 0.2s backwards;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content {
+            padding: 50px 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            animation: fadeIn 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section:nth-child(1) { animation-delay: 0.2s; }
+        .section:nth-child(2) { animation-delay: 0.4s; }
+        .section:nth-child(3) { animation-delay: 0.6s; }
+        .section:nth-child(4) { animation-delay: 0.8s; }
+        .section:nth-child(5) { animation-delay: 1s; }
+        .section:nth-child(6) { animation-delay: 1.2s; }
+        .section:nth-child(7) { animation-delay: 1.4s; }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #ec4899;
+            margin-bottom: 20px;
+            font-weight: bold;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #fbbf24;
+            display: inline-block;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #fbbf24, #f59e0b);
+            padding: 2px 8px;
+            border-radius: 4px;
+            color: #1f2937;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .important {
+            background-color: #fef3c7;
+            border-left: 4px solid #ec4899;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .heart-beat {
+            display: inline-block;
+            animation: heartbeat 1.3s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            50% { transform: scale(1); }
+        }
+
+        .list-item {
+            margin: 12px 0;
+            padding: 10px 15px;
+            background: #f0f9ff;
+            border-left: 4px solid #06b6d4;
+            border-radius: 4px;
+            line-height: 1.6;
+        }
+
+        .promise-section {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.1), rgba(244, 63, 94, 0.1));
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .promise-item {
+            margin: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .promise-item::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .emotional-text {
+            font-style: italic;
+            color: #6b7280;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #8b5cf6;
+        }
+
+        .closing {
+            text-align: center;
+            font-size: 1.3em;
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .two-weeks {
+            background: #fef3c7;
+            padding: 3px 8px;
+            border-radius: 4px;
+            color: #92400e;
+            font-weight: bold;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ec4899, transparent);
+            margin: 30px 0;
+        }
+
+        p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            font-size: 1.05em;
+        }
+
+        .emoji-float {
+            display: inline-block;
+            animation: emojiFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes emojiFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Long Distance But Close Hearts <span class="emoji-float">✨</span></h1>
+            <p>Kilometers feelings ko measure nahi kar sakte.</p>
+        </div>
+
+        <div class="content">
+            <!-- Intro Section -->
+            <div class="section">
+                <p><span class="highlight">Shayad hum alag states me hain</span>, par emotions ek hi jagah rehte hain <span class="heart-beat">💖</span></p>
+                <p><span class="highlight">Bihar aur Gujarat</span> ke beech distance ho sakta hai, par <span class="highlight">connection dil ka hota hai.</span></p>
+            </div>
+
+            <!-- Our Story -->
+            <div class="section">
+                <h2 class="section-title">Humari Kahani</h2>
+                <div class="divider"></div>
+                <p><span class="highlight">Roblox ek game tha</span>, par destiny ne humein yahi se milwaya. <span class="important">"My Baddie" ke naam ke ek game mein, ek random profile, ek casual conversation - aur phir sab kuchh badal gaya.</span></p>
+                <p>Slowly, gradually, dil ne socha nahi aur <span class="highlight">pyar ho gaya</span>. Aur tum bhi samjh gaye ki ye sirf ek game nahi raha. <span class="highlight">Ye ek connection tha. Ye ek feeling thi.</span></p>
+                <p>Tu <span class="highlight">Maharashtra</span> se, main <span class="highlight">Bihar</span> se. Desh ke alag-alag corners mein rehte hain hum. Par <span class="highlight">dil ek hi jagah dhakdhak karte hain.</span></p>
+            </div>
+
+            <!-- What I Want -->
+            <div class="section">
+                <h2 class="section-title">Mujhe Kya Chahiye?</h2>
+                <div class="divider"></div>
+                <p>Main <span class="highlight">sach maangta hoon</span>. Main <span class="highlight">transparency maangta hoon</span>. Aur main <span class="highlight">sirf tum chahta hoon.</span></p>
+                <p>Teri sab baatein sunne ko ready hoon. Teri independence ko respect dena hai mujhe. Par ek baat zaruri hai - <span class="highlight">HONESTY.</span></p>
+                <div class="important">
+                    <p><strong>Jab tu kisi bhi se baat kare, mujhe batana.</strong></p>
+                    <p><strong>Jab tu koi bhi kaam kare, mujhe pata chale.</strong></p>
+                    <p><strong>Jab tu kuch sooche, mujhe bata de.</strong></p>
+                </div>
+                <div class="emotional-text">
+                    <p><strong>Kyun?</strong> Kyunki <span class="highlight">overthinking mujhe maar dalti hai</span>. <span class="highlight">Uncertainty mujhe hurt karti hai</span>. <span class="highlight">Asachchai mujhe tabah kar deti hai.</span></p>
+                </div>
+            </div>
+
+            <!-- Best Friend -->
+            <div class="section">
+                <h2 class="section-title">Teri Best Friend ke Saath Baat Karna</h2>
+                <div class="divider"></div>
+                <p>Mujhe problem nahi hai agar tu apni best friend se baat kare. Bilkul! <span class="highlight">Best friends important hote hain.</span> Par...</p>
+                <div class="emotional-text">
+                    <p>...par mujhe <span class="highlight">ye bhi pata hona chahiye.</span> <span class="highlight">Transparency ke saath.</span> <span class="highlight">Khule dil se.</span> <span class="highlight">Sach bolke.</span></p>
+                </div>
+                <p>Kyunki jab mere ko <span class="highlight">mystery</span> milta hai, mere brain ke rathchakri chalti hai. Main sochta hoon - <span class="important">kya baat kar rahi ho? Kyun nahi bataya? Kyun chupa rahe ho?</span></p>
+                <p>Aur ye <span class="highlight">overthinking mere dil ko todti hai.</span></p>
+            </div>
+
+            <!-- Within Limits -->
+            <div class="section">
+                <h2 class="section-title">Teri Limits Mein Reh</h2>
+                <div class="divider"></div>
+                <p>Main tujhe apni <span class="highlight">freedom nahi chhinna chahta.</span> Tu jo bhi karna, kar. <span class="highlight">Apne boundaries mein reh aur kar.</span></p>
+                <p>Apne <span class="highlight">limits ko samajh.</span> Apne <span class="highlight">values ko samajh.</span> Aur un hi ke andar <span class="highlight">sab kuchh transparent rakh.</span></p>
+                <div class="promise-section">
+                    <p><strong>Jab tu apni limits mein transparent ho, toh:</strong></p>
+                    <div class="promise-item">mere ko <span class="highlight">peace milti hai</span></div>
+                    <div class="promise-item">mere ko <span class="highlight">confidence milti hai</span></div>
+                    <div class="promise-item">mere ko pata chalta hai ki main <span class="highlight">tere saath safe hoon</span></div>
+                </div>
+            </div>
+
+            <!-- Two Weeks -->
+            <div class="section">
+                <h2 class="section-title">Ye <span class="two-weeks">Do Haftey</span></h2>
+                <div class="divider"></div>
+                <p>Maine tujhe <span class="two-weeks">do haftey ka time</span> diya hai. <span class="highlight">Socho. Sach se socho.</span></p>
+                <div class="important">
+                    <p><strong>❓ Relationship mein aana hai ya nahi?</strong></p>
+                    <p><strong>❓ Transparency ke saath reh sakegi ya nahi?</strong></p>
+                    <p><strong>❓ Apni limits mein reh ke sab kuchh batana hai ya nahi?</strong></p>
+                </div>
+                <p>Main <span class="highlight">shaadi ki baat nahi kar raha.</span> Main <span class="highlight">responsibility ki baat kar raha hoon.</span> Main <span class="highlight">commitment ki baat kar raha hoon.</span> Main <span class="highlight">HONESTY ki baat kar raha hoon.</span></p>
+            </div>
+
+            <!-- If Yes -->
+            <div class="section">
+                <h2 class="section-title">Agar Tu "Haan" Kahe</h2>
+                <div class="divider"></div>
+                <div class="promise-section">
+                    <div class="promise-item">Tere saath har dukh mein <span class="highlight">khada rahunga</span></div>
+                    <div class="promise-item">Tere har baat ko <span class="highlight">suno aur samjhunga</span></div>
+                    <div class="promise-item">Tujhe <span class="highlight">judge nahi karunga</span></div>
+                    <div class="promise-item">Teri <span class="highlight">independence ko respect dunga</span></div>
+                    <div class="promise-item">Do haftey baad se leke <span class="highlight">poore zindagi bhar tere hi saath rahunga</span></div>
+                    <div class="promise-item">Har din tere liye ek nahi <span class="highlight">ek hazaar baar prove karunga</span> ki tu <span class="heart-beat">mere liye kaafi special ho</span></div>
+                </div>
+            </div>
+
+            <!-- If No -->
+            <div class="section">
+                <h2 class="section-title">Agar Tu "Na" Kahe</h2>
+                <div class="divider"></div>
+                <p>Toh main <span class="highlight">dard ke saath accept karunga.</span> <span class="important">Kyunki tumhara happiness mere se zyada important hai.</span></p>
+                <div class="emotional-text">
+                    <p>Par ek baat pakka hai - <span class="highlight">main tumhe kabhi nahi bhulunga.</span> <span class="highlight">Main tumhe sirf pyar se yaad rakhunga.</span></p>
+                </div>
+            </div>
+
+            <!-- Bihar to Gujarat -->
+            <div class="section">
+                <h2 class="section-title">Bihar Se Gujarat Tak</h2>
+                <div class="divider"></div>
+                <p><span class="highlight">Distance bhule do.</span> <span class="highlight">Map ko bhule do.</span> <span class="highlight">Geography ko bhule do.</span></p>
+                <div class="important">
+                    <p><strong>Ek ladka hai Bihar mein</strong> jo sirf tere liye <span class="highlight">intezaar kar raha hai.</span> Jo har raat ko socha karti hai. Jo har subah tere message wait karta hai.</p>
+                </div>
+                <div class="emotional-text">
+                    <p><strong>Ek ladki hai Gujarat mein</strong> jo maybe meri sune, maybe na sune. Par uske dil mein main hoon. Aur main jaanta hoon.</p>
+                </div>
+            </div>
+
+            <!-- Final Message -->
+            <div class="section">
+                <h2 class="section-title">Ye Do Haftey... Tum... Hamara Bhavishya</h2>
+                <div class="divider"></div>
+                <div class="emotional-text">
+                    <p><strong>Meri baat suno.</strong> <span class="highlight">Sach se suno.</span> <span class="highlight">Dil se suno.</span></p>
+                </div>
+                <div class="important">
+                    <p>Main <span class="highlight">sirf pyar karti ho iska insaan hoon.</span> Main <span class="highlight">sirf honest hona chahta hoon.</span> Main <span class="highlight">sirf tumse saath zindagi bitana chahta hoon.</span></p>
+                </div>
+                <p>Baki sab baatein baad mein. Pehle ye <span class="two-weeks">do haftey.</span> Phir tera faisla.</p>
+                <p><span class="highlight">Main intezaar kar raha hoon.</span></p>
+            </div>
+
+            <!-- Closing -->
+            <div class="closing">
+                <p>Long Distance, Close Hearts,<br>Forever Love <span class="heart-beat">❤️</span></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

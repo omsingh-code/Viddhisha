@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>💕 Mera Kal - Day 10</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page">
+
+  <h1>✨ Mera Dasva Din ✨</h1>
+
+  <div class="card">
+
+    <label>💭 Aaj ka din kaisa tha?</label>
+    <textarea id="day" placeholder="Apna din bataao..."></textarea>
+
+
+    <label>🎯 Aaj tum ne kya kya kiya?</label>
+    <textarea id="activity" placeholder="Tumhare activities likho..."></textarea>
+
+
+    <label>😊 Aaj ka mood kaisa tha?</label>
+
+    <select id="mood">
+
+      <option value="😊 Bohot Khush">😊 Bohot Khush</option>
+
+      <option value="🥺 Emotional">🥺 Emotional</option>
+
+      <option value="😴 Thak gaye">😴 Thak gaye</option>
+
+      <option value="😍 Romantic Feel">😍 Romantic Feel</option>
+
+      <option value="😔 Confuse">😔 Confuse</option>
+
+    </select>
+
+
+    <label>💭 Mere liye kya sochte ho?</label>
+    <textarea id="thoughts" placeholder="Apne dil ki baat likho..."></textarea>
+
+
+    <label>❤️ Meri Love Meter</label>
+
+    <input 
+      type="range"
+      id="love"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <span id="loveValue">50%</span>
+
+
+    <label>💑 Hum dono ka chance?</label>
+
+    <input
+      type="range"
+      id="chance"
+      min="0"
+      max="100"
+      value="50"
+    >
+
+    <span id="chanceValue">50%</span>
+
+
+    <label>🌈 Aaj kya kya feel kiya?</label>
+
+    <textarea
+      id="feelings"
+      placeholder="Sabhi feelings likho..."
+    ></textarea>
+
+
+    <div class="btn-group">
+
+      <button onclick="saveDay()" class="save-btn">
+        💖 Save Karo
+      </button>
+
+      <button onclick="deleteDay()" class="delete-btn">
+        ❌ Delete
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="buttons">
+
+    <a href="day11.html" class="next-btn">
+      Next Day ➜ 💕
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- Common JS -->
+<script src="script.js"></script>
+
+
+<script>
+
+const ids = [
+  'day',
+  'activity',
+  'mood',
+  'thoughts',
+  'love',
+  'chance',
+  'feelings'
+];
+
+
+// ========================
+// AUTO SAVE
+// ========================
+
+ids.forEach(id => {
+
+  autoSave(id, 'day10_' + id);
+
+});
+
+
+// ========================
+// LOVE METER
+// ========================
+
+const love = document.getElementById('love');
+
+const loveValue = document.getElementById('loveValue');
+
+love.value = getData('day10_love') || 50;
+
+loveValue.textContent = love.value + '%';
+
+love.addEventListener('input', function(){
+
+  loveValue.textContent = this.value + '%';
+
+});
+
+
+// ========================
+// CHANCE METER
+// ========================
+
+const chance = document.getElementById('chance');
+
+const chanceValue = document.getElementById('chanceValue');
+
+chance.value = getData('day10_chance') || 50;
+
+chanceValue.textContent = chance.value + '%';
+
+chance.addEventListener('input', function(){
+
+  chanceValue.textContent = this.value + '%';
+
+});
+
+
+// ========================
+// SAVE BUTTON
+// ========================
+
+function saveDay(){
+
+  alert('💕 Day 10 successfully save ho gaya!');
+
+}
+
+
+// ========================
+// DELETE BUTTON
+// ========================
+
+function deleteDay(){
+
+  const confirmDelete = confirm(
+    'Kya sach me Day 10 delete karna hai? 😢'
+  );
+
+  if(confirmDelete){
+
+    ids.forEach(id => {
+
+      deleteData('day10_' + id);
+
+    });
+
+    location.reload();
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
